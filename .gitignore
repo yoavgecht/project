@@ -1,0 +1,8 @@
+#untracked folders
+node_modules
+
+#Untracked files
+.DS_Store
+
+
+
