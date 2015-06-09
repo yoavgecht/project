@@ -1,0 +1,77 @@
+<html>
+	<head>
+	<title>Lesson1</title>
+	<style>
+		body{margin:50px auto;}
+		ul li{
+			list-style:none;
+		 	float:left;
+		 	width:200;
+		 	margin-left:20px;
+		 	text-align:center;
+		 	border-style: solid;
+    		border-color: #ff0000 #0000ff;	
+		 	border-radius:10px;
+		 }
+	</style>
+		
+		
+	</head>
+	<body>
+		
+			<ul>
+				<script id="weather" type="text/x-handlebars-template">
+					<li>
+						<h2>{{description}}</h2>
+						<p>{{temp}}<p>
+						<img src="http://openweathermap.org/img/w/{{img}}.png"/>
+					</li>
+				</script>
+			</ul>
+		
+		
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script>
+		(function(){
+			var Weather = {
+				init:function(){
+					this.url = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=51.5&lon=-0.12&cnt=7&icon&mode=json";
+					this.template = $.trim( $('#weather').html() );
+					this.fetch();
+				},
+				fetch:function(){
+					var self = this;
+					$.getJSON(this.url, function(data){
+						list = data.list;
+						console.log(data);
+						$.each( list, function(i, obj) {
+							var temp = self.template.replace( /{{img}}/ig, obj.weather[0].icon )
+													.replace(/{{temp}}/ig, obj.temp.day)
+													.replace(/{{description}}/ig, obj.weather[0].description);
+							console.log(temp);
+							$('ul').append(temp);
+						});
+
+						});
+						console.log(self.WeatherDays);
+						self.attachTemplate();
+					},
+					attachTemplate:function(){
+						console.log('attachTemplate');
+					},
+				
+
+
+			}
+
+			Weather.init();
+
+
+		})();
+			
+			
+
+			
+		</script>
+	</body>
+</html>
