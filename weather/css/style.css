@@ -302,30 +302,50 @@ a.small {
 
 }
 
+.weatherPage h2, .weatherPage h3 {
+  text-align:center;
+}
+
+h2.title{
+  color:#D26C22;
+  text-decoration:underline;
+}
+
 h3.area{
     color:#505050;
     font-family:'Oswald', sans-serif;
     font-weight:500;
     line-height: 1.1;
     font-size: 24px;
-    margin:0 auto;
+    margin: 20px auto 0 auto;
     width:600px;
 
 }
 
 div.info h3{
-  font-size: 30px;
-  font-family:'Oswald', 'sans-serif',
+  font-size: 18px;
+  font-family:'Oswald', 'sans-serif';
   color:#333;
 }
 
 ul.dayList{
-  margin:0 auto;
-  margin-top:20px;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 69%;
+}
+
+ul.dayList h3{
+  font-size:20px;
+
 }
 
 ul.dayList li{
   float:left;
-  margin-left:50px;
+  padding: 0 20px;
   text-align: center;
+  border-left: 1px solid #ddd;
+}
+
+ul.dayList li.days.last{
+  border-right: 1px solid #ddd;
 }
